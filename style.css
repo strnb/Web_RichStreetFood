@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: black;
+    line-height: 1.5;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: whitesmoke;
+}
+
+header {
+    background-color: white;
+    padding: 25px 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    border-radius: 12px;
+}
+h1 {
+    font-size: 40px;
+    margin-left: 50px
+}
+
+nav {
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: darkorange;
+    margin: 0 15px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: orangered;
+}
+
+section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+}
+
+section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: darkslategray;
+    margin-bottom: 15px;
+}
+
+.about img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+    border-radius: 12px;
+}
+
+.about p {
+    font-size: 22px;
+    color: dimgray;
+}
+
+.advantages ul {
+    margin-left: 30;
+}
+
+.advantages li {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+th, td {
+    border: 1px solid darkgray;
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 15px;
+}
+
+th {
+    background-color: lightgray;
+    font-weight: 700;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 30px 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+footer a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: orange;
+}
+
+footer a:hover {
+    color: white;
+}
