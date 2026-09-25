@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -15,6 +19,12 @@ body {
     background-color: whitesmoke;
 }
 
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 header {
     background-color: white;
     padding: 25px 20px;
@@ -24,25 +34,36 @@ header {
 }
 h1 {
     font-size: 40px;
-    margin-left: 50px
 }
 
 nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
     margin-top: 10px;
-    margin-left: 40px;
 }
 
 nav a {
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    color: darkorange;
-    margin: 0 15px;
+    color: #333;
     font-weight: 500;
 }
 
 nav a:hover {
-    color: orangered;
+    color: tomato;
+}
+
+#active {
+    color: tomato;
+}
+
+main {
+    flex: 1 0 auto;
+    padding: 0;
+    margin-bottom: 10px;
 }
 
 section {
@@ -74,7 +95,7 @@ section h2 {
 }
 
 .advantages ul {
-    margin-left: 30;
+    margin-left: 30px;
 }
 
 .advantages li {
@@ -123,4 +144,45 @@ footer a {
 
 footer a:hover {
     color: white;
+}
+
+/* Медиа-запросы (главная страница) */
+@media (max-width: 800px) {
+    .about img {
+        width: 500px;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 20px;
+    }
+
+    .about img {
+        width: 100%;
+        max-width: none;
+    }
+
+    table, th, td {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 400px) {
+    table, th, td {
+        font-size: 11px;
+    }
 }
