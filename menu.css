@@ -186,3 +186,40 @@
         gap: 30px;
     }
 }
+
+/* Блок «Ваш заказ» */
+.order-item {
+    margin-bottom: 18px;
+}
+
+.order-category {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.order-name {
+    font-size: 15px;
+    color: #333;
+}
+
+.order-total {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.order-price {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.nothing {
+    color: gray;
+    font-size: 16px;
+}
+
+/* Выделенная карточка */
+.dish.selected {
+    border: 2px solid tomato;
+}
