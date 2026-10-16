@@ -24,21 +24,58 @@
             </nav>
         </header>
         <main>
+            <!-- СУПЫ -->
             <section class="category">
                 <h2>Супы</h2>
+                <div class="filters" data-category="soup">
+                    <button data-kind="fish">рыбный</button>
+                    <button data-kind="meat">мясной</button>
+                    <button data-kind="veg">вегетарианский</button>
+                </div>
                 <div class="dishes" id="soups"></div>
             </section>
 
+            <!-- ГЛАВНЫЕ БЛЮДА -->
             <section class="category">
                 <h2>Главные блюда</h2>
-                <div class="dishes" id="main-dishes">
+                <div class="filters" data-category="main">
+                    <button data-kind="fish">рыбное</button>
+                    <button data-kind="meat">мясное</button>
+                    <button data-kind="veg">вегетарианское</button>
                 </div>
+                <div class="dishes" id="main-dishes"></div>
             </section>
 
+            <!-- САЛАТЫ / СТАРТЕРЫ (НОВАЯ) -->
+            <section class="category">
+                <h2>Салаты и стартеры</h2>
+                <div class="filters" data-category="salad">
+                    <button data-kind="fish">рыбный</button>
+                    <button data-kind="meat">мясной</button>
+                    <button data-kind="veg">вегетарианский</button>
+                </div>
+                <div class="dishes" id="salads"></div>
+            </section>
+
+            <!-- НАПИТКИ -->
             <section class="category">
                 <h2>Напитки</h2>
-                <div class="dishes" id="drinks">
+                <div class="filters" data-category="drink">
+                    <button data-kind="cold">холодный</button>
+                    <button data-kind="hot">горячий</button>
                 </div>
+                <div class="dishes" id="drinks"></div>
+            </section>
+
+            <!-- ДЕСЕРТЫ (НОВАЯ) -->
+            <section class="category">
+                <h2>Десерты</h2>
+                <div class="filters" data-category="dessert">
+                    <button data-kind="small">маленькая порция</button>
+                    <button data-kind="medium">средняя порция</button>
+                    <button data-kind="large">большая порция</button>
+                </div>
+                <div class="dishes" id="desserts"></div>
             </section>
         </main>
 

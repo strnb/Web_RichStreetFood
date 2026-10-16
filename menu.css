@@ -223,3 +223,26 @@
 .dish.selected {
     border: 2px solid tomato;
 }
+
+.filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filters button {
+    background: none;
+    border: none;
+    color: green;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.filters button.active {
+    background-color: #d4edda;
+    color: #155724;
+}

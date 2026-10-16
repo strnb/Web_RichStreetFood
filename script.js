@@ -4,7 +4,7 @@ function createDishCard(dish) {
     //главный div карточки
     const card = document.createElement('div');
     card.classList.add('dish');
-    card.setAttribute('data-dish', dish.keyword);  
+    card.setAttribute('data-dish', dish.keyword);
 
     // Картинка
     const img = document.createElement('img');
@@ -36,46 +36,27 @@ function createDishCard(dish) {
     return card;
 }
 
-function displayDishes() {
-    const soupsContainer = document.getElementById('soups');
-    const mainContainer = document.getElementById('main-dishes');
-    const drinksContainer = document.getElementById('drinks');
-
-    soupsContainer.innerHTML = '';
-    mainContainer.innerHTML = '';
-    drinksContainer.innerHTML = '';
-
-    dishes.forEach((dish) => {
-        const card = createDishCard(dish);
-
-        if (dish.category === 'soup') {
-            soupsContainer.append(card);
-        } else if (dish.category === 'main') {
-            mainContainer.append(card);
-        } else if (dish.category === 'drink') {
-            drinksContainer.append(card);
-        }
-    });
-}
-
-displayDishes();
-// Хранилище выбранных блюд 
+// Хранилище выбранных блюд
 const selected = {
     soup: null,
     main: null,
-    drink: null
+    salad: null,
+    drink: null,
+    dessert: null
 };
 
 function updateOrderSummary() {
     const summary = document.getElementById('order-summary');
-    summary.innerHTML = ''; 
+    summary.innerHTML = '';
 
-    const hasSoup  = selected.soup  !== null;
-    const hasMain  = selected.main  !== null;
+    const hasSoup = selected.soup !== null;
+    const hasMain = selected.main !== null;
+    const hasSalad = selected.salad !== null;
     const hasDrink = selected.drink !== null;
+    const hasDessert = selected.dessert !== null;
 
     // Если ничего не выбрано
-    if (!hasSoup && !hasMain && !hasDrink) {
+    if (!hasSoup && !hasMain && !hasSalad && !hasDrink && !hasDessert) {
         summary.innerHTML = '<p class="nothing">Ничего не выбрано</p>';
         return;
     }
@@ -98,6 +79,15 @@ function updateOrderSummary() {
     `;
     summary.append(mainBlock);
 
+    //Салат
+    const saladBlock = document.createElement('div');
+    saladBlock.classList.add('order-item');
+    saladBlock.innerHTML = `
+        <p class="order-category">Салат/стартер</p>
+        <p class="order-name">${hasSalad ? selected.salad.name + ' ' + selected.salad.price + '₽' : 'Блюдо не выбрано'}</p>
+    `;
+    summary.append(saladBlock);
+
     //Напиток
     const drinkBlock = document.createElement('div');
     drinkBlock.classList.add('order-item');
@@ -107,11 +97,22 @@ function updateOrderSummary() {
     `;
     summary.append(drinkBlock);
 
+    //Десерт
+    const dessertBlock = document.createElement('div');
+    dessertBlock.classList.add('order-item');
+    dessertBlock.innerHTML = `
+        <p class="order-category">Десерт</p>
+        <p class="order-name">${hasDessert ? selected.dessert.name + ' ' + selected.dessert.price + '₽' : 'Десерт не выбран'}</p>
+    `;
+    summary.append(dessertBlock);
+
     //Стоимость
     let total = 0;
-    if (hasSoup)  total += selected.soup.price;
-    if (hasMain)  total += selected.main.price;
+    if (hasSoup) total += selected.soup.price;
+    if (hasMain) total += selected.main.price;
+    if (hasSalad) total += selected.salad.price;
     if (hasDrink) total += selected.drink.price;
+    if (hasDessert) total += selected.dessert.price;
 
     const totalBlock = document.createElement('div');
     totalBlock.classList.add('order-total');
@@ -144,11 +145,75 @@ function setupDishClicks() {
                 }
             });
             card.classList.add('selected');
-            
+
             updateOrderSummary();
         });
     });
 }
 
-// Запускаем обработчики кликов после отображения блюд
-setupDishClicks();
+// Текущие активные фильтры по категориям
+const activeFilters = {
+    soup: null,
+    main: null,
+    salad: null,
+    drink: null,
+    dessert: null
+};
+
+// Отображение с учётом фильтра
+function displayDishes() {
+    const containers = {
+        soup: document.getElementById('soups'),
+        main: document.getElementById('main-dishes'),
+        salad: document.getElementById('salads'),
+        drink: document.getElementById('drinks'),
+        dessert: document.getElementById('desserts')
+    };
+
+    // очищаем все
+    Object.values(containers).forEach(c => {
+        if (c) c.innerHTML = '';
+    });
+
+    dishes.forEach(dish => {
+        const container = containers[dish.category];
+        if (!container) return;
+
+        const filter = activeFilters[dish.category];
+
+        // если фильтр активен и kind не совпадает — пропускаем
+        if (filter && dish.kind !== filter) return;
+
+        const card = createDishCard(dish);
+        container.append(card);
+    });
+
+    setupDishClicks(); // заново вешаем клики
+}
+
+// Клики по фильтрам
+function setupFilters() {
+    document.querySelectorAll('.filters button').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const category = this.parentElement.dataset.category;
+            const kind = this.dataset.kind;
+
+            // если нажали уже активный фильтр — сбрасываем
+            if (activeFilters[category] === kind) {
+                activeFilters[category] = null;
+                this.classList.remove('active');
+            } else {
+                // снимаем active у всех кнопок этой категории
+                this.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                activeFilters[category] = kind;
+            }
+
+            displayDishes();
+        });
+    });
+}
+
+// запуск
+displayDishes();
+setupFilters();
