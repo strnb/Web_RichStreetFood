@@ -217,3 +217,66 @@ function setupFilters() {
 // запуск
 displayDishes();
 setupFilters();
+
+// 6 лаба
+
+function getOrderError() {
+    const soup = selected.soup !== null;
+    const main = selected.main !== null;
+    const salad = selected.salad !== null;
+    const drink = selected.drink !== null;
+    const dessert = selected.dessert !== null;
+
+    if (!soup && !main && !salad && !drink && !dessert) {
+        return 'Ничего не выбрано. Выберите блюда для заказа';
+    }
+
+    if (!soup && !main && !salad) {
+        return 'Выберите главное блюдо';
+    }
+
+    if (soup && !main && !salad) {
+        return 'Выберите главное блюдо/салат/стартер';
+    }
+
+    if (salad && !soup && !main) {
+        return 'Выберите суп или главное блюдо';
+    }
+
+    if (!drink) {
+        return 'Выберите напиток';
+    }
+
+    return null;
+}
+
+function showNotification(message) {
+    const old = document.querySelector('.notification');
+    if (old) old.remove();
+
+    const wrap = document.createElement('div');
+    wrap.classList.add('notification');
+
+    const box = document.createElement('div');
+    box.classList.add('notification-box');
+
+    const text = document.createElement('p');
+    text.textContent = message;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = 'Окей 👌';
+    button.addEventListener('click', () => wrap.remove());
+
+    box.append(text, button);
+    wrap.append(box);
+    document.body.append(wrap);
+}
+
+document.querySelector('.order-form').addEventListener('submit', (event) => {
+    const message = getOrderError();
+    if (message) {
+        event.preventDefault();
+        showNotification(message);
+    }
+});
