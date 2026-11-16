@@ -330,14 +330,12 @@
     border: 1px solid black;
     padding: 40px 30px;
     width: 420px;
-    border-radius: 12;
     max-width: 90%;
     text-align: center;
 }
 
 .notification-box p {
     font-size: 22px;
-    border-radius: 12;
     margin-bottom: 30px;
     color: black;
 }
@@ -356,4 +354,45 @@
 .notification-box button:hover {
     background-color: black;
     color: white;
+}
+
+/* лаба 8: панель перехода к оформлению заказа */
+.order-panel {
+    position: sticky;
+    bottom: 20px;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 20px 30px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 5px 24px rgba(0, 0, 0, 0.2);
+}
+
+.order-panel__total {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.order-panel__link {
+    padding: 10px 24px;
+    border-radius: 12px;
+    background-color: tomato;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.order-panel__link:hover {
+    background-color: #e0543a;
+}
+
+.order-panel__link:not([href]) {
+    background-color: #f1eee9;
+    color: gray;
+    cursor: not-allowed;
 }

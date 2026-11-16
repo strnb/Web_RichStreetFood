@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформить заказ — RichStreetFood_EvdokimovAD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/order.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>
+                Rich Street Food
+            </h1>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="menu.html">Меню</a>
+                <a href="order.html" id="active">Оформить заказ</a>
+                <a href="index.html#about">О нас</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="order-composition">
+                <h2>Состав заказа</h2>
+
+                <p class="order-empty" id="order-empty" hidden>
+                    Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на страницу
+                    <a href="menu.html">Собрать ланч</a>.
+                </p>
+
+                <div class="dishes" id="order-dishes"></div>
+            </section>
+
+            <section class="order">
+                <h2>Оформление заказа</h2>
+
+                <form class="order-form">
+                    <div class="order-left">
+                        <h3>Ваш заказ</h3>
+
+                        <div id="order-summary">
+                            <div class="order-item" id="order-soup">
+                                <p class="order-category">Суп</p>
+                                <p class="order-name"></p>
+                            </div>
+
+                            <div class="order-item" id="order-main">
+                                <p class="order-category">Главное блюдо</p>
+                                <p class="order-name"></p>
+                            </div>
+
+                            <div class="order-item" id="order-salad">
+                                <p class="order-category">Салат/стартер</p>
+                                <p class="order-name"></p>
+                            </div>
+
+                            <div class="order-item" id="order-drink">
+                                <p class="order-category">Напиток</p>
+                                <p class="order-name"></p>
+                            </div>
+
+                            <div class="order-item" id="order-dessert">
+                                <p class="order-category">Десерт</p>
+                                <p class="order-name"></p>
+                            </div>
+
+                            <div class="order-total">
+                                <p class="order-category">Стоимость заказа</p>
+                                <p class="order-price" id="order-total-value"></p>
+                            </div>
+                        </div>
+
+                        <label for="comment">Комментарии к заказу</label>
+                        <textarea id="comment" name="comment" rows="6"></textarea>
+                    </div>
+
+                    <div class="order-right">
+                        <h3>Ваши данные</h3>
+
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="full_name" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <div class="checkbox-row">
+                            <input type="checkbox" id="subscribe" name="subscribe" value="yes" checked>
+                            <label for="subscribe">Получать информацию о скидках и акциях</label>
+                        </div>
+
+                        <label for="phone">Номер телефона</label>
+                        <input type="tel" id="phone" name="phone" required>
+
+                        <label for="address">Адрес доставки</label>
+                        <input type="text" id="address" name="delivery_address" required>
+                        <p class="note">Доставка осуществляется только по Москве</p>
+
+                        <p class="delivery-title">Время доставки:</p>
+
+                        <div class="radio-row">
+                            <input type="radio" id="asap" name="delivery_type" value="now" required checked>
+                            <label for="asap">Как можно скорее</label>
+                        </div>
+
+                        <div class="radio-row">
+                            <input type="radio" id="exact" name="delivery_type" value="by_time">
+                            <label for="exact">К указанному времени</label>
+                        </div>
+
+                        <label for="time">Укажите время доставки</label>
+                        <input type="time" id="time" name="delivery_time" min="07:00" max="23:00" step="300">
+                        <p class="note">Доступное время доставки с 7:00 до 23:00</p>
+
+                        <div class="buttons">
+                            <button type="reset">Сбросить</button>
+                            <button type="submit">Отправить</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <footer id="contacts">
+            <p>Телефон: <a href="tel:+78005553535">8-800-555-35-35</a></p>
+            <p>Email: <a href="mailto:notbad@asiafood.ru">notbad@asiafood.ru</a></p>
+            <p>Адрес: г. Москва, ул. Автозаводская, д. 18</p>
+            <p>Работаем ежедневно с 13:50 до 14:30</p>
+        </footer>
+    </div>
+<script src="scripts/api.js"></script>
+<script src="scripts/order.js"></script>
+<script src="scripts/checkout.js"></script>
+</body>
+</html>

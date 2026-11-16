@@ -1,0 +1,24 @@
+/* лаба 8: страница «Оформить заказ» */
+
+.order-composition .dishes {
+    margin-top: 10px;
+}
+
+.order-empty {
+    font-size: 16px;
+    color: gray;
+}
+
+.order-empty a {
+    color: tomato;
+}
+
+/* на странице состава заказа действие только у кнопки «Удалить» */
+.order-composition .dish {
+    border: 2px solid transparent;
+    cursor: default;
+}
+
+.order-composition .dish:hover {
+    border-color: transparent;
+}
