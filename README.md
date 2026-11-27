@@ -89,28 +89,6 @@ python -m http.server 8000
 
 Затем открыть <http://localhost:8000>. Подойдёт и расширение Live Server в VS Code.
 
-## Настройка API
-
-Ключ выдаётся в СДО Московского Политеха. В репозиторий он не попадает.
-
-1. Скопируйте `scripts/config.example.js` в `scripts/config.js`.
-2. Впишите свой ключ:
-
-```js
-window.API_URL = 'https://web-basics-api-gagashaggy.msk1.amvera.tech';
-window.API_KEY = 'ваш-api-key';
-```
-
-3. Те же значения можно хранить в `.env` (файл в `.gitignore`):
-
-```env
-API_URL=https://web-basics-api-gagashaggy.msk1.amvera.tech
-API_KEY=ваш-api-key
-```
-
-`config.js` подключается в HTML перед `api.js`, поэтому страницы сразу видят настройки.
-`.env` — просто локальная копия секретов, сам сайт его не читает.
-
 ### Безопасность
 
 Сайт полностью клиентский, поэтому ключ всё равно виден в DevTools любого посетителя.
