@@ -1,0 +1,265 @@
+/* лаба 9: стили страницы истории заказов и модальных окон */
+
+.orders-status {
+    color: dimgray;
+    font-size: 17px;
+}
+
+.orders-status a {
+    color: tomato;
+}
+
+.orders-table-wrap {
+    overflow-x: auto;
+}
+
+/* в базовых стилях у таблицы рамки — здесь только разделители строк */
+.orders-table th,
+.orders-table td {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    padding: 16px 12px;
+    vertical-align: top;
+}
+
+.orders-table th {
+    background: none;
+    border-bottom: 2px solid #333;
+    white-space: nowrap;
+}
+
+.orders-dishes {
+    min-width: 240px;
+}
+
+/* кнопки столбиком, иначе три текстовые кнопки не влезают по ширине */
+.orders-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.orders-action {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.orders-action:hover {
+    border-color: tomato;
+    color: tomato;
+}
+
+.orders-action--danger:hover {
+    border-color: #b71c1c;
+    color: #b71c1c;
+}
+
+/* модальные окна */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.modal-window {
+    background-color: white;
+    width: 620px;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    padding: 25px 30px;
+}
+
+.modal-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-head h2 {
+    font-size: 24px;
+    color: black;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 30px;
+    line-height: 1;
+    color: #333;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: tomato;
+}
+
+.modal h3 {
+    font-size: 18px;
+    margin: 20px 0 10px;
+}
+
+.modal-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 15px;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.modal-total {
+    margin-top: 15px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.modal-btn {
+    background-color: #ececec;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 26px;
+    font: inherit;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+}
+
+.modal-btn:hover {
+    background-color: #ddd;
+}
+
+.modal-btn--primary {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.modal-btn--primary:hover {
+    background-color: #256428;
+}
+
+.modal-btn--danger {
+    background-color: #b71c1c;
+    color: white;
+}
+
+.modal-btn--danger:hover {
+    background-color: #8f1414;
+}
+
+.modal-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* поля формы редактирования */
+.modal-field {
+    margin-bottom: 12px;
+}
+
+.modal-field label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.modal-field input,
+.modal-field select,
+.modal-field textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 15px;
+}
+
+.modal-field textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.modal-composition p {
+    margin-bottom: 6px;
+}
+
+@media (max-width: 600px) {
+    .modal-window {
+        padding: 20px;
+    }
+
+    .modal-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    /* на узком экране таблица превращается в карточки */
+    .orders-table thead {
+        display: none;
+    }
+
+    .orders-table,
+    .orders-table tbody,
+    .orders-table tr,
+    .orders-table td {
+        display: block;
+    }
+
+    .orders-table tr {
+        padding: 12px 0;
+        border-bottom: 2px solid #333;
+    }
+
+    .orders-table td {
+        display: flex;
+        gap: 10px;
+        padding: 4px 0;
+        border: none;
+    }
+
+    .orders-table td::before {
+        content: attr(data-label);
+        flex: 0 0 110px;
+        color: dimgray;
+        font-size: 13px;
+    }
+
+    .orders-dishes {
+        min-width: 0;
+    }
+
+    .orders-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /* подпись «Действия» отдельной строкой, кнопки — под ней */
+    .orders-table td.orders-actions::before {
+        flex: 0 0 100%;
+        margin-bottom: 4px;
+    }
+}

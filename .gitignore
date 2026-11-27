@@ -1,0 +1,12 @@
+# секреты
+.env
+scripts/config.js
+
+# служебные файлы редакторов и ОС
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# временные файлы
+*.log

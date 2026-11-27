@@ -1,0 +1,61 @@
+/* лаба 10: кастомные стили лендинга — только то, чего нет в Bootstrap */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: whitesmoke;
+}
+
+/* акцентный цвет взят из основного сайта */
+.accent {
+    color: tomato;
+}
+
+.btn-accent {
+    background-color: tomato;
+    border-color: tomato;
+    color: white;
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+    background-color: #e2503a;
+    border-color: #e2503a;
+    color: white;
+}
+
+.btn-accent:focus-visible {
+    box-shadow: 0 0 0 0.25rem rgba(255, 99, 71, 0.35);
+}
+
+/* круглые номера в карточках преимуществ */
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #ffe5df;
+    color: tomato;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.cta {
+    background-color: tomato;
+}
+
+.contact-list li {
+    margin-bottom: 18px;
+    font-size: 17px;
+}
+
+.contact-list a {
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-list a:hover {
+    color: tomato;
+}

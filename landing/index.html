@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лендинг — Rich Street Food</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+    <!-- лаба 10: навигация Bootstrap, на телефоне сворачивается в бургер -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Rich Street Food</a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#main-menu"
+                    aria-controls="main-menu" aria-expanded="false" aria-label="Открыть меню">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="main-menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../menu.html">Меню</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../order.html">Оформить заказ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../orders.html">Заказы</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Лендинг</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- лаба 10: hero — название, описание и картинка -->
+    <section class="hero py-5">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <p class="text-uppercase small fw-bold accent mb-2">Бизнес-ланчи с доставкой по Москве</p>
+                    <h1 class="display-4 fw-bold mb-3">Rich Street Food</h1>
+                    <p class="lead text-secondary mb-4">
+                        Готовим блюда Китая, Вьетнама, Таиланда и Кореи по классическим рецептам
+                        и привозим горячими прямо в офис.
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row gap-2">
+                        <a href="../menu.html" class="btn btn-accent btn-lg px-4">Собрать ланч</a>
+                        <a href="#contacts" class="btn btn-outline-dark btn-lg px-4">Связаться с нами</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="../images/obed.jpg" class="img-fluid rounded-4 shadow-sm"
+                         alt="Бизнес-ланч Rich Street Food">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- лаба 10: преимущества — сетка карточек -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="h2 fw-bold text-center mb-2">Почему именно мы</h2>
+            <p class="text-center text-secondary mb-5">Четыре причины заказать ланч у нас</p>
+
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="feature-icon mb-3">1</div>
+                            <h3 class="h5 card-title">Традиционные рецепты</h3>
+                            <p class="card-text text-secondary mb-0">
+                                Готовим по классическим азиатским рецептам, без адаптации «под вкус».
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="feature-icon mb-3">2</div>
+                            <h3 class="h5 card-title">Свежие ингредиенты</h3>
+                            <p class="card-text text-secondary mb-0">
+                                Закупаем продукты каждое утро и не держим заготовки дольше суток.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="feature-icon mb-3">3</div>
+                            <h3 class="h5 card-title">Доставка за 45–70 минут</h3>
+                            <p class="card-text text-secondary mb-0">
+                                Работаем ежедневно с 7:00 до 23:00 по всей Москве.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="feature-icon mb-3">4</div>
+                            <h3 class="h5 card-title">Свой выбор блюд</h3>
+                            <p class="card-text text-secondary mb-0">
+                                Собирайте комбо сами: суп, горячее, салат, напиток и десерт.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- лаба 10: CTA — призыв перейти на страницу сборки ланча -->
+    <section class="cta text-white py-5">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <h2 class="h2 fw-bold mb-2">Соберите свой бизнес-ланч</h2>
+                    <p class="mb-0 opacity-75">
+                        Выберите блюда из меню, укажите время доставки — остальное мы сделаем сами.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="../menu.html" class="btn btn-light btn-lg px-4 fw-bold">Собрать ланч</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- лаба 10: форма обратной связи и контакты -->
+    <section class="py-5" id="contacts">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <h2 class="h3 fw-bold mb-4">Оставить заявку</h2>
+
+                    <form class="needs-validation" id="feedback-form" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Имя</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="Иван Иванов" required>
+                                <div class="invalid-feedback">Укажите имя.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Телефон</label>
+                                <input type="tel" class="form-control" id="phone" name="phone"
+                                       placeholder="+7 999 000-00-00" required>
+                                <div class="invalid-feedback">Укажите телефон.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                       placeholder="you@company.ru" required>
+                                <div class="invalid-feedback">Укажите email.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Комментарий</label>
+                                <textarea class="form-control" id="message" name="message" rows="4"
+                                          placeholder="Сколько ланчей нужно и на какое время"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-accent btn-lg px-4">Отправить</button>
+                                <p class="form-success text-success fw-bold mt-3 mb-0" id="form-success" hidden>
+                                    Спасибо! Мы свяжемся с вами в ближайшее время.
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-lg-5">
+                    <h2 class="h3 fw-bold mb-4">Контакты</h2>
+                    <ul class="list-unstyled contact-list mb-0">
+                        <li>
+                            <span class="text-secondary small d-block">Телефон</span>
+                            <a href="tel:+78005553535">8-800-555-35-35</a>
+                        </li>
+                        <li>
+                            <span class="text-secondary small d-block">Email</span>
+                            <a href="mailto:notbad@asiafood.ru">notbad@asiafood.ru</a>
+                        </li>
+                        <li>
+                            <span class="text-secondary small d-block">Адрес</span>
+                            г. Москва, ул. Автозаводская, д. 18
+                        </li>
+                        <li>
+                            <span class="text-secondary small d-block">Режим работы</span>
+                            Ежедневно с 7:00 до 23:00
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2 small">
+            <span>Rich Street Food — доставка бизнес-ланчей</span>
+            <span class="opacity-75">Лабораторная работа № 10, Bootstrap 5</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // лаба 10: проверка полей формы; серверной отправки нет — только сообщение
+        document.getElementById('feedback-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            this.classList.add('was-validated');
+
+            if (this.checkValidity()) {
+                document.getElementById('form-success').hidden = false;
+                this.reset();
+                this.classList.remove('was-validated');
+            }
+        });
+    </script>
+</body>
+</html>
